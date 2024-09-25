@@ -1,8 +1,10 @@
 class Fan
-    attr_reader :speed
+    attr_accessor :speed, :power_saving_mode
     
+    # PROPERTIES SET WHEN INITIALISED
     def initialize
         @speed = 3
+        @power_saving_mode = true
     end
 
     def get_speed

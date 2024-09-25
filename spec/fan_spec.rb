@@ -50,5 +50,11 @@ RSpec.describe Fan do
         expect(@fan.get_speed).to eq(3)
     end
 
+
+    # POWER SAVING MODE -- on by default
+    it "power saving mode on by default" do
+        expect(@fan.power_saving_mode).to be true
+    end 
+    
 end
 
