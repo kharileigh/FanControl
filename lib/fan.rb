@@ -18,4 +18,9 @@ class Fan
         return @speed -= 1 if @speed > 1
     end
 
+    # RESET TO INITIAL SPEED
+    def reset
+        @speed = 3
+    end
+
 end
