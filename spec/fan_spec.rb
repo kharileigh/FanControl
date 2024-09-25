@@ -85,5 +85,38 @@ RSpec.describe Fan do
         expect(@fan.get_speed).to eq(8)
     end
 
+
+    # ENERGY USAGE
+    # LOW -- speed < 3
+    it "low energy usage when speed is below 3" do
+
+        # decrease speed
+        @fan.decrease_speed
+        
+        expect(@fan.energy_usage).to eq('low-usage')
+    end
+    
+    # MEDIUM -- speed <= 5 
+    it "medium energy usage when speed is max 5" do
+
+        # increase speed up to 5
+        2.times { @fan.increase_speed }
+
+        expect(@fan.energy_usage).to eq('medium-usage')
+    end
+
+    # HIGH -- speed > 5
+    it "high energy usage for speeds above 5" do
+
+        # turn off power saving mode, to increase speed to 8
+        @fan.power_saving_mode = false
+
+        # increase speed up to 8
+        5.times { @fan.increase_speed }
+
+        expect(@fan.energy_usage).to eq('high-usage')
+    end
+
+        
 end
 

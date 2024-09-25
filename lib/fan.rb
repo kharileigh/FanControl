@@ -29,4 +29,18 @@ class Fan
         @speed = 3
     end
 
+    # ENERGY USAGE
+    # low : speed < 3
+    # medium : speed <= 5
+    # high : speed > 5
+    def energy_usage
+        if @speed < 3
+            'low-usage'
+        elsif @speed <= 5
+            'medium-usage'
+        else
+            'high-usage'
+        end
+    end
+            
 end
