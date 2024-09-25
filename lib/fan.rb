@@ -1,8 +1,8 @@
 class Fan
     attr_reader :speed
     
-    def initialize(speed)
-        @speed = speed
+    def initialize
+        @speed = 3
     end
 
     def get_speed
@@ -10,11 +10,12 @@ class Fan
     end
 
     def increase_speed
-        return @speed + 1
+        return @speed += 1
     end
 
+    # ADD MIN SPEED
     def decrease_speed
-        return @speed - 1
+        return @speed -= 1 if @speed > 1
     end
 
 end
