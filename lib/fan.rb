@@ -11,8 +11,12 @@ class Fan
         return @speed
     end
 
+    # ADD MAX SPEED
+    # if power saving mode ? ON = 5 : OFF = 8
+    # increase speed ONLY if less than max speed
     def increase_speed
-        return @speed += 1
+        max_speed = @power_saving_mode ? 5 : 8
+        return @speed += 1 if @speed < max_speed
     end
 
     # ADD MIN SPEED

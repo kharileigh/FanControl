@@ -55,6 +55,35 @@ RSpec.describe Fan do
     it "power saving mode on by default" do
         expect(@fan.power_saving_mode).to be true
     end 
+
     
+    # POWER SAVING MODE -- on, max speed 5
+    it "caps max speed at 5 when power saving mode is on" do
+        
+        # runs function 3x, speed = 6
+        3.times { @fan.increase_speed }
+
+        # speed = 5, because power saving mode on
+        expect(@fan.get_speed).to eq(5)
+        @fan.increase_speed
+        expect(@fan.get_speed).to eq(5)
+    end
+
+
+    # POWER SAVING MODE -- off, max speed 8
+    it "caps max speed at 8 when power saving mode is off" do
+
+        # turn off power saving mode 
+        @fan.power_saving_mode = false
+
+        # run function 5x, speed = 8
+        5.times { @fan.increase_speed }
+        expect(@fan.get_speed).to eq(8)
+
+        # speed = 8, because power saving mode off
+        @fan.increase_speed
+        expect(@fan.get_speed).to eq(8)
+    end
+
 end
 
